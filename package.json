@@ -1,8 +1,8 @@
 {
   "name": "ms2",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "mock server for fe dev",
-  "main": "index.js",
+  "keywords": ["mock", "dev"],
   "bin": {
     "ms2": "./bin/ms2"
   },
@@ -10,11 +10,14 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint ./"
   },
+  "engines": {
+    "node": ">= 8.0.0"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/rhinonan/mock-server.git"
   },
-  "author": "",
+  "author": "husan_",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/rhinonan/mock-server/issues"

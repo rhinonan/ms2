@@ -1,2 +1,5 @@
 node_modules
 .DS_store
+__mock__
+.vscode
+ms2.config.js
