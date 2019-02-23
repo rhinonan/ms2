@@ -11,8 +11,8 @@ module.exports = {
   staticPath: null,
 
   handleMapPath(req) {
-    // 分离query
-    const url = req.url.indexOf('?') > -1 ? req.url.split('?')[0] : req.url;
+    // 剔除query
+    const url = req.url.split('?')[0];
 
     // 整理出相对路径以及文件名
     const paths = url.split('/').filter(item => item);

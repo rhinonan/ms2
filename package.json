@@ -4,7 +4,7 @@
   "description": "mock server for fe dev",
   "main": "index.js",
   "bin": {
-    "ms2": "./bin/start.js"
+    "ms2": "./bin/ms2"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
