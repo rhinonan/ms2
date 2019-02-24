@@ -3,13 +3,21 @@
 const program = require('commander');
 const path = require('path');
 const chokidar = require('chokidar');
+const semver = require('semver');
 
 const pkg = require('../package.json');
 const startServer = require('../util/startServer');
 const initVue = require('../src/init/vue');
 
+const requiredNodeVersion = pkg.engines.node;
 const DEFAULT_FILE = './ms2.config.js';
 let restartTimes = 0;
+
+// 检验node版本
+if (!semver.satisfies(process.version, requiredNodeVersion)) {
+  console.error('Ms2 is base on Koa2. \nPlease upgrade you Node version to 8.x');
+  process.exit(1);
+}
 
 program
   .version(pkg.version)
