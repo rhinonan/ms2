@@ -6,6 +6,17 @@ const path = require('path');
 const fs = require('fs');
 
 /**
+ * 获取解析后的body
+ * 因为处理的方式不同，所以有两种获取body的方式，现在统一封装成一个
+ *
+ * @param {req} req koa的ctx对象或者nodejs的req对象
+ * @returns {object} body对象
+ */
+function getBody(req) {
+  return req.$body || req.request.body;
+}
+
+/**
  * 计算文件所在绝对目录以及文件文件绝对路径
  *
  * @param {object} req - http 请求req
@@ -14,10 +25,12 @@ const fs = require('fs');
  * @returns {object.filePath} - 文件路径
  */
 function calcFileInfo(req, config) {
-  const {
-    relativePath,
-    fileName,
-  } = config.handleMapPath(req, req.$query, req.$body, global.$_config);
+  const { relativePath, fileName } = config.handleMapPath(
+    req,
+    req.$query || req.query,
+    getBody(req),
+    global.$_config,
+  );
 
   // 检测外部自定义函数参数
   if (!relativePath || !fileName) {

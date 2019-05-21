@@ -12,7 +12,7 @@ const config = global.$_config;
 router.all('/*', async (ctx) => {
   const {
     filePath,
-  } = calcFileInfo(ctx.req, config);
+  } = calcFileInfo(ctx, config);
 
   const jsFile = `${filePath}.js`;
 
